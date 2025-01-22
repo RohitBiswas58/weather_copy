@@ -4,12 +4,12 @@ from datetime import datetime, timedelta
 
 def home(request):
     city = request.GET.get('city', 'Dum Dum')
-    api_key = 'd693f3dff6835e58b520256bf4e64afc'
+    api_key = ''
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
-    API_KEY =  'AIzaSyAx4Mz5y3VUXsCdXdZMUUBBtIChwvvGVy4'
+    API_KEY =  ''
 
-    SEARCH_ENGINE_ID = '52573522e3cb54f89'
+    SEARCH_ENGINE_ID = ''
      
     query = city + " 1920x1080"
     page = 1
