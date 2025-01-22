@@ -6,7 +6,8 @@ import requests
 def home(request):
     # city="Kolkata"
     city=request.GET.get('city','Kolkata')
-    url=f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=d693f3dff6835e58b520256bf4e64afc'
+    api=''
+    url=f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}'
     try:
         data = requests.get(url).json()
         payload = {
