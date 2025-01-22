@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            background: linear-gradient(135deg, #6e7f8e, #3d4f64);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content_wrapper {
+            width: 400px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(3px);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color:rgb(175, 236, 178);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0a17b0;
+        }
+
+        .weather_card {
+            display: flex;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.72);
+        }
+
+        .weather_card_img {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .weather_card_infos {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .weather_card_infos_title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .weather_card_infos_temp {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .weather_card_infos_detail {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .sun_times {
+            font-size: 12px;
+            color: #444;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body style="{% if data.city != 'N/A' %}background-image: url('{{ data.image_url }}'); background-size: cover; background-position: center;{% endif %}">
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

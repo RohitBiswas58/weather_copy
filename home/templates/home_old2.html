@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content_wrapper">
+    <h1>Weather Information</h1>
+    <form method="get">
+        <input class="form-control" name="city" placeholder="Enter city">
+        <button class="btn" type="submit">Search</button>
+    </form>
+
+    {% if data.city != 'N/A' %}
+    <div class="weather_card">
+        <div class="weather_card_img" style="background-image: url('http://openweathermap.org/img/wn/{{ data.icon }}.png')">
+        </div>
+        <div class="weather_card_infos">
+            <h2>{{ data.city }}, {{ data.country }}</h2>
+            <p><strong>Coordinates:</strong> Lon: {{ data.coordinates.lon }}<br>Lat: {{ data.coordinates.lat }}</p>
+            <p><strong>Weather:</strong> {{ data.weather }} ({{ data.description }})</p>
+            <p><strong>Temperature:</strong> {{ data.temperature.celsius }}°C <br>(Feels like: {{ data.temperature.feels_like_celsius }}°C)</p>
+            <p><strong>Min Temp:</strong> {{ data.temperature.min_celsius }}°C<br><strong>Max Temp:</strong> {{ data.temperature.max_celsius }}°C</p>
+            <p><strong>Pressure:</strong> {{ data.pressure }} hPa<br><strong>Humidity:</strong> {{ data.humidity }}%
+            <br><strong>Sea Level:</strong> {{ data.sea_level }} hPa<br><strong>Ground Level:</strong> {{ data.ground_level }} hPa</p>
+            <p><strong>Visibility:</strong> {{ data.visibility }} meters</p>
+            <p><strong>Wind:</strong> {{ data.wind.speed }} m/s, {{ data.wind.degree }}°</p>
+            <p><strong>Cloudiness:</strong> {{ data.clouds }}%</p>
+            <p><strong>Sunrise:</strong> {{ data.sunrise}}<br><strong>Sunset:</strong> {{ data.sunset}}</p>
+        </div>
+    </div>
+    {% else %}
+    <p>No data available for the entered city.</p>
+    {% endif %}
+</div>
+{% endblock %}
